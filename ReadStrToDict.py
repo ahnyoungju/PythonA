@@ -1,3 +1,4 @@
+
 fin = open("TodayWeather.json", "r")
 
 output = fin.read()

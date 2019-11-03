@@ -30,6 +30,7 @@ todayWeather["Wind_speed"] = jsonFormat["list"][0]["wind"]["speed"]
 todayWeather["Sunrise"] = jsonFormat["city"]["sunrise"]
 todayWeather["Sunset"] = jsonFormat["city"]["sunset"]
 
+
 sunrise = jsonFormat["city"]["sunrise"]
 timezone = jsonFormat["city"]["timezone"]
 sunset = jsonFormat["city"]["sunset"]
@@ -37,5 +38,9 @@ print( todayWeather )
 
 # Write json to TodayWeather.json file
 fout = open("TodayWeather.json", "w")
-fout.write(str(todayWeather))
+#fout.write(str(todayWeather))
+
+# using json.dump to store json format to file
+json.dump(todayWeather, fout)
+
 fout.close()
