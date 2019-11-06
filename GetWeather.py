@@ -24,7 +24,7 @@ response = requests.get(url)
 #print(response.text[:1000])
 #print( type(response.text))
 
-common.jprint(response.json())
+#common.jprint(response.json())
 
 todayWeather = {}
 
@@ -58,7 +58,7 @@ todayWeather["Str_sunrise"] = str(time)
 print("Sunrise: " , time)
 time = datetime.fromtimestamp(sunset)
 print("Sunset:  " , time)
-todayWeather["Str_Sunset"] = str(time)
+todayWeather["Str_sunset"] = str(time)
 
 # Weather Icon URL
 # http://openweathermap.org/img/wn/04n.png
