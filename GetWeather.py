@@ -62,10 +62,10 @@ todayWeather["Str_Sunset"] = str(time)
 
 # Weather Icon URL
 # http://openweathermap.org/img/wn/04n.png
-print( todayWeather["Icon"] )
 print( "Weather ICON URL: http://openweathermap.org/img/wn/" + todayWeather["Icon"] + ".png" )
+todayWeather["Icon"] = "http://openweathermap.org/img/wn/" + todayWeather["Icon"] + ".png"
 
-print( todayWeather )
+#print( todayWeather )
 common.jprint( todayWeather )
 # Write json to TodayWeather.json file
 fout = open("TodayWeather.json", "w")
