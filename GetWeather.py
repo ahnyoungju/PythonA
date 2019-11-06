@@ -5,11 +5,7 @@
 import json
 import requests
 from datetime import datetime
-
-# Create a formatted string of the Python JSON object
-def jprint(obj):
-    text = json.dumps(obj, sort_keys=True, indent=2)
-    print(text)
+import common
 
 url = "http://api.openweathermap.org/data/2.5/forecast?q=Melbourne,AU&units=metric&APPID=e79c59d54b437abefcab039dd2657f5c"
 
@@ -28,7 +24,7 @@ response = requests.get(url)
 #print(response.text[:1000])
 #print( type(response.text))
 
-jprint(response.json())
+common.jprint(response.json())
 
 todayWeather = {}
 
@@ -58,17 +54,19 @@ timezone = jsonFormat["city"]["timezone"]
 sunset = jsonFormat["city"]["sunset"]
 
 time = datetime.fromtimestamp(sunrise)
+todayWeather["Str_sunrise"] = str(time)
 print("Sunrise: " , time)
 time = datetime.fromtimestamp(sunset)
 print("Sunset:  " , time)
+todayWeather["Str_Sunset"] = str(time)
 
 # Weather Icon URL
 # http://openweathermap.org/img/wn/04n.png
 print( todayWeather["Icon"] )
 print( "Weather ICON URL: http://openweathermap.org/img/wn/" + todayWeather["Icon"] + ".png" )
 
-jprint( todayWeather )
-
+print( todayWeather )
+common.jprint( todayWeather )
 # Write json to TodayWeather.json file
 fout = open("TodayWeather.json", "w")
 #fout.write(str(todayWeather))
